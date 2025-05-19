@@ -7,12 +7,26 @@ import { locations } from './locations';
 import SearchBox from './SearchBox';
 
 // Fix Leaflet marker icon in React
-delete L.Icon.Default.prototype._getIconUrl;
+
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+  iconRetinaUrl: markerIcon2x.src,
+  iconUrl: markerIcon.src,
+  shadowUrl: markerShadow.src,
 });
+
+const customIcon = new L.Icon({
+  iconUrl: '/ts-map-pin.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
+  shadowSize: [41, 41],
+});
+
 
 function FlyToLocation({ position }) {
   const map = useMap();
@@ -58,6 +72,7 @@ export default function Maps() {
             <Marker
               key={index}
               position={location.position}
+              icon={customIcon}
               ref={(ref) => {
                 if (ref) {
                   markerRefs.current[location.name] = ref;
