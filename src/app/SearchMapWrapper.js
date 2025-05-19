@@ -16,6 +16,5 @@ export default function SearchMapWrapper() {
       <SearchBox setPosition={setPosition} setActiveLocation={setActiveLocation} />
       <Maps position={position} activeLocation={activeLocation} />
     </div>
-    
   );
 }

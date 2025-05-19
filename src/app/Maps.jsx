@@ -29,7 +29,7 @@ export default function Maps({ position, activeLocation }) {
   }, [activeLocation]);
 
   return (
-    <div className="h-[500px] w-full">
+    <div className="h-[700px] w-full">
       <MapContainer
         center={position}
         zoom={13}
