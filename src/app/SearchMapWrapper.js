@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
-import SearchBox from './SearchBox';
+// import SearchBox from './SearchBox';
 
 // 👇 Dynamically import the map with SSR disabled
 const Maps = dynamic(() => import('./Maps'), { ssr: false });
@@ -13,7 +13,7 @@ export default function SearchMapWrapper() {
 
   return (
     <div>
-      <SearchBox setPosition={setPosition} setActiveLocation={setActiveLocation} />
+      {/* <SearchBox setPosition={setPosition} setActiveLocation={setActiveLocation} /> */}
       <Maps position={position} activeLocation={activeLocation} />
     </div>
   );
